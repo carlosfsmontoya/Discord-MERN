@@ -1,42 +1,108 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+  margin: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.sidebar {
+  flex: 1 1 300px;
+  padding: 20px;
+  background-color: #36393f;
+  color: #ffffff;
+}
+
+.server-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.server {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.server:hover {
+  background-color: #202225;
+}
+
+.channel-list {
+  flex: 1 1 200px;
+  padding: 20px;
+  background-color: #2f3136;
+  color: #ffffff;
+}
+
+.channel {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.channel:hover {
+  background-color: #202225;
+}
+
+.chat {
+  flex: 2 1 300px;
+  padding: 20px;
+  background-color: #2f3136;
+  color: #ffffff;
+}
+
+.messages {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.message {
+  margin-bottom: 10px;
+}
+
+.input-area {
+  margin-top: 20px;
+}
+
+.input-area input {
+  width: calc(100% - 70px);
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.input-area button {
+  width: 60px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #7289da;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.input-area button:hover {
+  background-color: #677bc4;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .sidebar,
+  .channel-list,
+  .chat {
+    flex: auto;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .server-list,
+  .channel-list {
+    padding: 10px;
   }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  .channel-list {
+    max-height: 200px;
+    overflow-y: auto;
+  }
 }
