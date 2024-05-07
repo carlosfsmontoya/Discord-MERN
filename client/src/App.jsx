@@ -1,10 +1,11 @@
-import "./App.css";
-import ChannelList from "./components/Messages.jsx";
+import "./App.scss";
+
+import DiscordChat from "./pages/DiscordChat";
 
 function App() {
   return (
     <>
-      <ChannelList />
+      <DiscordChat />
     </>
   );
 }

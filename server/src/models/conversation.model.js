@@ -1,19 +1,25 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const discordSchema = mongoose.Schema({
-  channelName: String,
-  conversation: [
-    {
-      message: String,
-      timestamp: String,
-      user: {
-        displayName: String,
-        email: String,
-        photo: String,
-        uid: String,
-      },
-    },
-  ],
+const messageSchema = mongoose.Schema({
+  message: String,
+  timestamp: String,
+  user: {
+    displayName: String,
+    email: String,
+    photo: String,
+    uid: String,
+  },
 });
 
-export default mongoose.model("conversations", discordSchema);
+const channelSchema = mongoose.Schema({
+  channelName: String,
+  conversation: [messageSchema],
+});
+
+const serverSchema = mongoose.Schema({
+  serverName: String,
+  serverImage: String,
+  channels: [channelSchema],
+});
+
+export default mongoose.model('servers', serverSchema);

@@ -36,3 +36,14 @@ export const createNewMessage = async (req, res) => {
     res.status(500).send(error);
   }
 };
+
+export const getAllServers = async (req, res) => {
+  try {
+    const servers = await mongooseData.find();
+    console.log(servers);
+    res.status(200).send(servers);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(error);
+  }
+};
